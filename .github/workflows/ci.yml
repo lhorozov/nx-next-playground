@@ -45,4 +45,5 @@ jobs:
 
       # Run Nx affected tasks (lint, test, build, e2e)
       - name: Run Nx affected tasks
+        run: nx reset
         run: nx affected -t test --base=main --head=HEAD
