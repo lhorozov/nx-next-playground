@@ -41,4 +41,4 @@ jobs:
 
       # Run Nx affected tasks (lint, test, build, e2e)
       - name: Run Nx affected tasks
-        run: npx nx affected -t lint test build e2e-ci
+        run: npx nx affected -t lint test build e2e-ci --base=previous-commit --head=HEAD
