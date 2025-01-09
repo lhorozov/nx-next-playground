@@ -1,11 +1,12 @@
 name: CI
-
 on:
   push:
     branches:
+      # Change this if your primary branch is not main
       - main
   pull_request:
 
+# Needed for nx-set-shas when run on the main branch
 permissions:
   actions: read
   contents: read
@@ -17,28 +18,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      # Install pnpm globally
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      # Enable Nx Cloud task distribution
-      - run: pnpm dlx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
-
-      # Set up Node.js and cache pnpm dependencies
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.yaml'
+          cache: 'npm'
+      # This line enables distribution
+      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "e2e-ci" targets have been requested
+      # - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
+      - run: npm ci
 
-      # Install dependencies using pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      # Set SHA for Nx tasks
       - uses: nrwl/nx-set-shas@v4
 
-      # Run Nx affected tasks (lint, test, build, e2e)
-      - name: Run Nx affected tasks
-        run: pnpm exec nx affected -t lint test build --verbose
+      - run: npx nx-cloud record -- nx format:check
+      - run: npx nx affected -t lint test build e2e-ci
