@@ -1,7 +1,6 @@
-import App from "../components/App";
 
 export default function Index() {
   return (
-    <App />
+   <div>Route /1</div>
   );
 }
