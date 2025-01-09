@@ -6,8 +6,8 @@ export default defineConfig({
   e2e: {
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
-      webServerCommands: { default: 'npx nx run first-nx-project:dev' },
-      ciWebServerCommand: 'npx nx run first-nx-project:serve-static',
+      webServerCommands: { default: 'npx nx run nx-next-playground:dev' },
+      ciWebServerCommand: 'npx nx run nx-next-playground:serve-static',
       ciBaseUrl: 'http://localhost:3000',
     }),
     baseUrl: 'http://127.0.0.1:3000',

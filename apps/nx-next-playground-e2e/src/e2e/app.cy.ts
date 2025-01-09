@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('first-nx-project-e2e', () => {
+describe('nx-next-playground-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {

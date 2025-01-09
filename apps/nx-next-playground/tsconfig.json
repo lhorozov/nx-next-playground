@@ -26,8 +26,8 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "../../apps/first-nx-project/.next/types/**/*.ts",
-    "../../dist/apps/first-nx-project/.next/types/**/*.ts",
+    "../../apps/nx-next-playground/.next/types/**/*.ts",
+    "../../dist/apps/nx-next-playground/.next/types/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],

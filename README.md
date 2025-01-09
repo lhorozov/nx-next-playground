@@ -16,19 +16,19 @@
 To run the dev server for your app, use:
 
 ```sh
-npx nx dev first-nx-project
+npx nx dev nx-next-playground
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build first-nx-project
+npx nx build nx-next-playground
 ```
 
 To see all available targets to run for a project, run:
 
 ```sh
-npx nx show project first-nx-project
+npx nx show project nx-next-playground
 ```
         
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.

@@ -1,9 +1,9 @@
 {
-  "name": "first-nx-project",
+  "name": "nx-next-playground",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/first-nx-project",
+  "sourceRoot": "apps/nx-next-playground",
   "projectType": "application",
   "tags": [],
-  "// targets": "to see all targets run: nx show project first-nx-project --web",
+  "// targets": "to see all targets run: nx show project nx-next-playground --web",
   "targets": {}
 }
