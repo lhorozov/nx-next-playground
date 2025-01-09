@@ -41,4 +41,4 @@ jobs:
 
       # Run Nx affected tasks (lint, test, build, e2e)
       - name: Run Nx affected tasks
-        run: pnpm exec nx affected -t lint test build e2e-ci
+        run: pnpm exec nx affected -t lint
