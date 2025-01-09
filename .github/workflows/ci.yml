@@ -14,10 +14,13 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the code
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      # Install pnpm globally
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       # Enable Nx Cloud task distribution
       - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
@@ -29,10 +32,6 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
-      # Install pnpm
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       # Install dependencies using pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -40,6 +39,6 @@ jobs:
       # Set SHA for Nx tasks
       - uses: nrwl/nx-set-shas@v4
 
-      # Run affected tasks (lint, test, build, e2e)
+      # Run Nx affected tasks (lint, test, build, e2e)
       - name: Run Nx affected tasks
         run: npx nx affected -t lint test build e2e-ci
