@@ -22,10 +22,6 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      # Install nx globally
-      - name: Install nx
-        run: npm install -g nx
-
       # Enable Nx Cloud task distribution
       - run: pnpm dlx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
 
@@ -45,5 +41,4 @@ jobs:
 
       # Run Nx affected tasks (lint, test, build, e2e)
       - name: Run Nx affected tasks
-        run: nx reset
-        run: nx affected -t test --base=main --head=HEAD
+        run: pnpm exec nx affected -t lint test build
