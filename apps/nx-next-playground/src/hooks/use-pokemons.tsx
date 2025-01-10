@@ -20,7 +20,6 @@ const usePokemons = ({ limit = 20, offset = 20 } = {}) => {
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
-        console.log(response);
         const json = await response.json();
         setPokemons(json);
       } catch (e) {
